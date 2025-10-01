@@ -1,0 +1,160 @@
+/* Import font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Dark theme */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212;  /* Spotify's dark background */
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #1DB954;  /* Spotify green accent */
+}
+
+header p {
+    color: #b3b3b3;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+section {
+    background-color: #181818;  /* Slightly lighter dark */
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+/* Form styling */
+#add-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+}
+
+#add-form input,
+#add-form select {
+    background-color: #282828;
+    border: 1px solid #404040;
+    color: #ffffff;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+#add-form input:focus,
+#add-form select:focus {
+    outline: none;
+    border-color: #1DB954;
+}
+
+#add-form button {
+    background-color: #1DB954;
+    color: #000000;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#add-form button:hover {
+    background-color: #1ed760;
+    transform: scale(1.05);
+}
+
+/* Watchlist items */
+.watchlist-item {
+    background-color: #282828;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: background-color 0.2s ease;
+}
+
+.watchlist-item:hover {
+    background-color: #3E3E3E;
+}
+
+.watchlist-item h3 {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.watchlist-item p {
+    color: #b3b3b3;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.watchlist-item button {
+    background-color: transparent;
+    border: 1px solid #b3b3b3;
+    color: #b3b3b3;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.2s ease;
+}
+
+.watchlist-item button:hover {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+/* Pick button */
+#pick-for-me {
+    background-color: #1DB954;
+    color: #000000;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#pick-for-me:hover {
+    background-color: #1ed760;
+    transform: scale(1.05);
+}
+
+#result {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #282828;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 18px;
+}

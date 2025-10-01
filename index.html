@@ -16,9 +16,17 @@
         <!-- Add to watchlist section -->
         <section id="add-section">
             <h2>Add to Your Watchlist</h2>
-            <!-- YOU BUILD THIS: Form to add movies/shows -->
+            <form id="add-form">
+                <input type="text" id="title" placeholder="Movie/Show Title" required>
+                <select id="type">
+                        <option value="movie">Movie</option>
+                        <option value="show">TV Show</option>
+                </select>
+                <input type="text" id="genre" placeholder="Genre (e.g., Action, Comedy)">
+                <button type="submit">Add to Watchlist</button>
+            </form>
         </section>
-
+        
         <!-- Your watchlist display -->
         <section id="watchlist-section">
             <h2>Your Watchlist</h2>
