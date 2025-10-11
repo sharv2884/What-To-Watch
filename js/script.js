@@ -56,3 +56,22 @@ function removeItem(id) {
     watchlist = watchlist.filter(item => item.id !== id);
     displayWatchlist();
 }
+const pickButton = document.getElementById('pick-for-me');
+const resultDiv = document.getElementById('result');
+
+pickButton.addEventListener('click', function() {
+    if (watchlist.length === 0) {
+        resultDiv.innerHTML = '<p>Your watchlist is empty! Add something first.</p>';
+        return;
+    }
+    
+    // Pick random item
+    const randomIndex = Math.floor(Math.random() * watchlist.length);
+    const picked = watchlist[randomIndex];
+    
+    resultDiv.innerHTML = `
+        <h3>You should watch:</h3>
+        <h2>${picked.title}</h2>
+        <p>Type: ${picked.type} | Genre: ${picked.genre}</p>
+    `;
+});
