@@ -158,3 +158,30 @@ section h2 {
     color: #ffffff;
     font-size: 18px;
 }
+.watchlist-item.watched {
+    opacity: 0.6;
+}
+
+.watchlist-item.watched h3 {
+    text-decoration: line-through;
+    color: #666;
+}
+#watchlist-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Make it responsive - 2 columns on tablets, 1 on mobile */
+@media (max-width: 968px) {
+    #watchlist-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    #watchlist-container {
+        grid-template-columns: 1fr;
+    }
+}

@@ -19,7 +19,8 @@ form.addEventListener('submit', function(e) {
         title: title,
         type: type,
         genre: genre,
-        id: Date.now() // Simple unique ID
+        id: Date.now(),
+        watched: false  // Add this line
     };
     
     // Add to watchlist array
@@ -34,17 +35,24 @@ form.addEventListener('submit', function(e) {
 
 // Function to display watchlist
 function displayWatchlist() {
-    // Clear container
     watchlistContainer.innerHTML = '';
     
-    // Loop through watchlist and create HTML for each item
     watchlist.forEach(item => {
         const itemDiv = document.createElement('div');
         itemDiv.className = 'watchlist-item';
+        
+        // Add 'watched' class if item is watched
+        if (item.watched) {
+            itemDiv.classList.add('watched');
+        }
+        
         itemDiv.innerHTML = `
-            <h3>${item.title}</h3>
+            <h3>${item.title} ${item.watched ? '✓' : ''}</h3>
             <p>Type: ${item.type}</p>
             <p>Genre: ${item.genre}</p>
+            <button onclick="toggleWatched(${item.id})">
+                ${item.watched ? 'Mark as Unwatched' : 'Mark as Watched'}
+            </button>
             <button onclick="removeItem(${item.id})">Remove</button>
         `;
         watchlistContainer.appendChild(itemDiv);
@@ -60,14 +68,17 @@ const pickButton = document.getElementById('pick-for-me');
 const resultDiv = document.getElementById('result');
 
 pickButton.addEventListener('click', function() {
-    if (watchlist.length === 0) {
-        resultDiv.innerHTML = '<p>Your watchlist is empty! Add something first.</p>';
+    // Filter out watched movies
+    const unwatchedMovies = watchlist.filter(item => !item.watched);
+    
+    if (unwatchedMovies.length === 0) {
+        resultDiv.innerHTML = '<p>You\'ve watched everything! Add more to your watchlist or mark some as unwatched.</p>';
         return;
     }
     
-    // Pick random item
-    const randomIndex = Math.floor(Math.random() * watchlist.length);
-    const picked = watchlist[randomIndex];
+    // Pick random from unwatched only
+    const randomIndex = Math.floor(Math.random() * unwatchedMovies.length);
+    const picked = unwatchedMovies[randomIndex];
     
     resultDiv.innerHTML = `
         <h3>You should watch:</h3>
@@ -75,3 +86,11 @@ pickButton.addEventListener('click', function() {
         <p>Type: ${picked.type} | Genre: ${picked.genre}</p>
     `;
 });
+// Function to toggle watched status
+function toggleWatched(id) {
+    const item = watchlist.find(item => item.id === id);
+    if (item) {
+        item.watched = !item.watched;
+        displayWatchlist();
+    }
+}
