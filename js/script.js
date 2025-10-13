@@ -94,3 +94,29 @@ function toggleWatched(id) {
         displayWatchlist();
     }
 }
+function displayWatchlist() {
+    watchlistContainer.innerHTML = '';
+    
+    watchlist.forEach(item => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'watchlist-item';
+        
+        if (item.watched) {
+            itemDiv.classList.add('watched');
+        }
+        
+        // Wrap content in a div
+        itemDiv.innerHTML = `
+            <div class="watchlist-item-content">
+                <h3>${item.title} ${item.watched ? '✓' : ''}</h3>
+                <p>Type: ${item.type}</p>
+                <p>Genre: ${item.genre}</p>
+                <button onclick="toggleWatched(${item.id})">
+                    ${item.watched ? 'Unwatch' : 'Watched'}
+                </button>
+                <button onclick="removeItem(${item.id})">Remove</button>
+            </div>
+        `;
+        watchlistContainer.appendChild(itemDiv);
+    });
+}
