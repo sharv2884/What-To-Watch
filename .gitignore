@@ -22,3 +22,5 @@ Thumbs.db
 # Build files
 dist/
 build/
+
+js/config.js

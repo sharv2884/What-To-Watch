@@ -120,3 +120,9 @@ function displayWatchlist() {
         watchlistContainer.appendChild(itemDiv);
     });
 }
+const API_KEY = CONFIG.TMDB_API_KEY;
+fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+
