@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>🎬 What to Watch?</h1>
+        <h1>What to Watch?</h1>
         <p>Stop overthinking. Let us decide for you.</p>
     </header>
 
@@ -17,11 +17,13 @@
         <section id="add-section">
             <h2>Add to Your Watchlist</h2>
             <form id="add-form">
-                <input type="text" id="title" placeholder="Search for a movie..." autocomplete="off">
-<div id="search-results"></div>
+                <div style="position: relative;">
+                    <input type="text" id="title" placeholder="Search for a movie..." autocomplete="off">
+                    <div id="search-results"></div>
+                </div>
                 <select id="type">
-                        <option value="movie">Movie</option>
-                        <option value="show">TV Show</option>
+                    <option value="movie">Movie</option>
+                    <option value="show">TV Show</option>
                 </select>
                 <input type="text" id="genre" placeholder="Genre (e.g., Action, Comedy)">
                 <button type="submit">Add to Watchlist</button>
