@@ -200,3 +200,4 @@ pickButton.addEventListener('click', function() {
         <p>Type: ${picked.type} | Genre: ${picked.genres}</p>
     `;
 });
+
