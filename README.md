@@ -1,40 +1,26 @@
-# What to Watch - Decision Helper
+# What to Watch?
 
-Stop wasting time deciding what to watch. Let this app decide for you!
-
-## The Problem
-You have too many movies and shows on your watchlist and can't decide what to watch.
-
-## The Solution
-Add your watchlist using TMDB movie search, and let the app randomly pick something for you.
+A movie and TV show watchlist manager that helps you decide what to watch next.
 
 ## Features
-- ✅ Search movies/TV shows with TMDB API
-- ✅ Display watchlist with real posters
-- ✅ Random picker that decides for you
-- ✅ Mark as watched
-- ⏳ Filter by genre/mood (coming soon)
-- ⏳ User ratings and recommendations (coming soon)
+- 🔍 Search movies/TV shows using TMDB API
+- ➕ Add items to watchlist with real posters
+- ✅ Mark items as watched
+- 🎲 Random picker when you can't decide
+- 💾 LocalStorage for data persistence
 
 ## Tech Stack
-- Frontend: HTML, CSS, Vanilla JavaScript
-- API: TMDB (The Movie Database)
-- Backend: Node.js + Express (coming soon)
-- Database: MongoDB (coming soon)
+- Vanilla JavaScript (ES6+)
+- TMDB API for movie data
+- CSS3 with custom styling
+- LocalStorage for client-side persistence
 
 ## Setup
-
-1. Clone the repository
-2. Get a TMDB API key from [here](https://www.themoviedb.org/settings/api)
-3. Create `js/config.js` and add your API key:
-   ```javascript
+1. Get TMDB API key: https://www.themoviedb.org/settings/api
+2. Create `js/config.js`:
+```javascript
    const CONFIG = {
        TMDB_API_KEY: 'your_api_key_here'
    };
-   ```
-4. Open `index.html` in your browser
-
-## Development Log
-- **Week 1**: Project setup, basic HTML structure
-- **Week 2**: TMDB API integration, search functionality, watchlist display
-- **Current**: Working on UI improvements and additional features
+```
+3. Open `index.html` in browser

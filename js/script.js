@@ -6,7 +6,7 @@ const API_BASE = 'https://api.themoviedb.org/3';
 const IMAGE_BASE = 'https://image.tmdb.org/t/p/w500';
 
 let selectedMovie = null;
-let watchlist = [];
+let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
 
 // Get form and display elements
 const form = document.getElementById('add-form');
@@ -115,6 +115,7 @@ form.addEventListener('submit', function(e) {
     };
     
     watchlist.push(item);
+    localStorage.setItem('watchlist', JSON.stringify(watchlist));
     displayWatchlist();
     
     form.reset();
@@ -169,6 +170,7 @@ function toggleWatched(id) {
     const item = watchlist.find(item => item.id === id);
     if (item) {
         item.watched = !item.watched;
+        localStorage.setItem('watchlist', JSON.stringify(watchlist));
         displayWatchlist();
     }
 }
@@ -176,6 +178,7 @@ function toggleWatched(id) {
 // Function to remove item
 function removeItem(id) {
     watchlist = watchlist.filter(item => item.id !== id);
+    localStorage.setItem('watchlist', JSON.stringify(watchlist));
     displayWatchlist();
 }
 
@@ -200,4 +203,5 @@ pickButton.addEventListener('click', function() {
         <p>Type: ${picked.type} | Genre: ${picked.genres}</p>
     `;
 });
-
+// Display watchlist on page load
+displayWatchlist();
